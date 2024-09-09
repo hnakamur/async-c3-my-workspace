@@ -1,6 +1,5 @@
 module a_raw_syscall;
-
-extern fn isz write(CInt fd, void* buf, usz len); // C "write"
+import libc;
 
 fn int main(String[] args)
 {
@@ -11,5 +10,5 @@ fn int main(String[] args)
 }
 
 fn usz write_to_stdout(String msg) {
-	return write(1, msg.ptr, msg.len);
+	return libc::write(1, msg.ptr, msg.len);
 }
